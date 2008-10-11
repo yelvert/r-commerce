@@ -1,0 +1,24 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+
+<% for item in @items %>
+  <tr>
+    <td><%=h item.category.name %></td>
+    <td><%= link_to item.name, item %></td>
+    <td>$<%=h price_to_string(item.price) %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to_remote 'Add To Cart', :url => {:action => 'add_to_cart', :id => item.id}%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item', new_item_path %>

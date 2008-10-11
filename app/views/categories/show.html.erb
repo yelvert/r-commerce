@@ -1,0 +1,27 @@
+<p>
+  <b>Name:</b>
+  <%=h @category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @category.description %>
+</p>
+
+<table>
+	<tr>
+		<th>Item</th>
+		<th>Price</th>
+	</tr>
+	<% @category.items.each do |item| %>
+	<tr>
+		<td><%= item.name %></td>
+		<td>$<%=h price_to_string(item.price) %></td>
+		<td><%= link_to_remote 'Add To Cart', :url => {:controller => 'items', :action => 'add_to_cart', :id => item.id}%></td>
+	</tr>
+	<% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

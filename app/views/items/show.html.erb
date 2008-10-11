@@ -1,0 +1,23 @@
+<p>
+  <b>Category:</b>
+  <%=h @item.category.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @item.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  $<%=h price_to_string(@item.price) %>
+</p>
+
+<p>
+  <b>Description:</b><br />
+  <%=h @item.description%>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
