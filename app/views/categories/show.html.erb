@@ -3,11 +3,19 @@
   <%=h @category.name %>
 </p>
 
+<% unless @category.parent_id.nil? %>
+	<p>
+		<b>Parent Category</b>
+		<%= @category.parent_category.name %>
+	</p>
+<% end %>
+
 <p>
   <b>Description:</b>
   <%=h @category.description %>
 </p>
-
+<br />
+Items
 <table>
 	<tr>
 		<th>Item</th>
@@ -21,7 +29,23 @@
 	</tr>
 	<% end %>
 </table>
-
+<br />
+SubCategories
+<table>
+	<tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+	<% for subcategory in @category.sub_categories %>
+	  <tr>
+	    <td><%=link_to subcategory.name, subcategory %></td>
+	    <td><%= subcategory.description %></td>
+	    <td><%= link_to 'Destroy', subcategory, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+</table>
+<%= link_to 'New SubCategory', new_category_path({:parent_id => @category.id})%>
+<br />
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

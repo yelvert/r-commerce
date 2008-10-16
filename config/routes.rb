@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :item_images
+
   map.resources :carts
 
   map.resources :items

@@ -26,6 +26,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.xml
   def new
     @category = Category.new
+    @category.parent_id = params[:parent_id] unless params[:parent_id].nil?
 
     respond_to do |format|
       format.html # new.html.erb

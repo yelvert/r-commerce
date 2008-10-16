@@ -11,6 +11,13 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </p>
+	<% unless @category.parent_id.nil? %>
+		<p>
+		  <%= f.label :parent %>: <%= @category.parent_category.name %>
+			<%= f.hidden_field :parent_id %>
+		</p>
+		<br />
+	<% end %>
   <p>
     <%= f.submit "Create" %>
   </p>

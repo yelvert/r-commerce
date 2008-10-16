@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   # GET /items/new.xml
   def new
     @item = Item.new
+    @image_i = 0
 
     respond_to do |format|
       if Category.find(:all).length == 0
@@ -49,9 +50,19 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
     @item.price = @item.price.to_precision
-
+    
     respond_to do |format|
       if @item.save
+        a = ItemImage.create({:uploaded_data => params[:item_images][params[:default_image].to_i], :item_id => @item.id})
+        logger.info a.id
+        @item.default_image_id = a.id
+        @item.save
+        params[:item_images].delete_at(params[:default_image].to_i)
+        @image = ItemImage.new
+        params[:item_images] ||= []
+        params[:item_images].each do |file|
+          @image = ItemImage.create({:uploaded_data => file, :item_id => @item.id}) unless file == ""
+        end
         flash[:notice] = 'Item was successfully created.'
         format.html { redirect_to(@item) }
         format.xml  { render :xml => @item, :status => :created, :location => @item }

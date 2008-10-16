@@ -20,4 +20,16 @@ class Category < ActiveRecord::Base
     parent_category
   end
   
+  def path
+    path = []
+    path.insert(0, self)
+    parent_id = self.parent_id
+    until parent_id.nil?
+        parent = Category.find(parent_id)
+        path.insert(0, parent)
+        parent_id = parent.parent_id
+    end
+    path
+  end
+  
 end
