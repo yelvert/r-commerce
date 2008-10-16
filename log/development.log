@@ -13265,3 +13265,6 @@ Migrating to AddSubCategories (20081011232718)
   [4;36;1mCategory Load (0.007066)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 1103) [0m
   [4;35;1mCategory Load (0.006643)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 1103) [0m
   [4;36;1mCategory Load (0.006642)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 1104) [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.003656)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 03:31:48') [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002046)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 03:32:03') [0m
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.000714)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 03:32:04') [0m
