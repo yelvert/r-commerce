@@ -10,13 +10,29 @@
 
 <p>
   <b>Price:</b>
-  $<%=h price_to_string(@item.price) %>
+  <%= number_to_currency(@item.price) %>
 </p>
+
+<p>
+	<b>Options:</b><br />
+	<% @item.item_options.each do |option| %>
+		<%= option.name %>: <%= number_to_currency(option.price)%><br />
+	<% end %>
 
 <p>
   <b>Description:</b><br />
   <%=h @item.description%>
 </p>
+
+<p>
+	<b>Item Images:</b><br />
+	<% @item.item_images.each do |image| %>
+			<%= image_tag(image.public_filename(:thumb)) %>
+			<% if image.default_image?(@item) %>
+				Default
+			<% end %>
+			<br />
+	<% end %>
 
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

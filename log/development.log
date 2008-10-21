@@ -19480,3 +19480,885 @@ NOT BLANK
 Completed in 0.15105 (6 reqs/sec) | Rendering: 0.09001 (59%) | DB: 0.00903 (5%) | 200 OK [http://localhost/items/35]
   [4;36;1mItem Load (0.001951)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 35) [0m
   [4;35;1mItemImage Load (0.003338)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 35) [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002693)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 08:43:12') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 03:43:13) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"default_image"=>"1", "commit"=>"Create", "item_images"=>[#<File:/var/folders/dJ/dJeFMqmlF8mIisAtjEpWd++++TQ/-Tmp-/CGI78810-11>], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"Test Item 1", "price"=>"543", "category_id"=>"2204", "description"=>"test"}}
+  [4;35;1mItem Create (0.001445)[0m   [0mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('Test Item 1', NULL, '2008-10-16 08:43:13', 543.0, 2204, 'test', '2008-10-16 08:43:13')[0m
+
+  [4;36;1mItemImage Create (0.003371)[0m   [0;1mINSERT INTO "item_images" ("item_id", "content_type", "thumbnail", "size", "updated_at", "filename", "height", "width", "created_at") VALUES(36, 'image/jpeg', NULL, 636038, '2008-10-16 08:43:15', 'astronomer21920.jpg', 200, 320, '2008-10-16 08:43:15')[0m
+Redirected to http://localhost:3000/items/36
+Completed in 2.40047 (0 reqs/sec) | DB: 0.00906 (0%) | 302 Found [http://localhost/items]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.001879)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 08:43:15') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 03:43:15) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"36", "controller"=>"items"}
+  [4;36;1mItem Load (0.002237)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 36) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;35;1mCategory Load (0.001473)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCart Load (0.001901)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.30642 (3 reqs/sec) | Rendering: 0.23024 (75%) | DB: 0.00920 (3%) | 200 OK [http://localhost/items/36]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.001903)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:18:36') [0m
+
+
+Processing CartsController#show (for 127.0.0.1 at 2008-10-16 16:18:37) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"36", "controller"=>"carts"}
+  [4;35;1mCart Load (0.001914)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering carts/show
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.10859 (9 reqs/sec) | Rendering: 0.05285 (48%) | DB: 0.00602 (5%) | 200 OK [http://localhost/carts/36]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.001870)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:18:44') [0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2008-10-16 16:18:45) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.070835)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering categories/index
+  [4;36;1mCart Load (0.001408)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.36866 (2 reqs/sec) | Rendering: 0.23507 (63%) | DB: 0.07565 (20%) | 200 OK [http://localhost/categories]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.001864)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:19:33') [0m
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2008-10-16 16:19:34) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"2204", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.002353)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+Rendering template within layouts/main
+Rendering categories/show
+  [4;36;1mItem Load (0.016446)[0m   [0;1mSELECT * FROM "items" WHERE ("items".category_id = 2204) [0m
+  [4;35;1mCategory Load (0.011388)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 2204) [0m
+  [4;36;1mCart Load (0.003213)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.35383 (2 reqs/sec) | Rendering: 0.28089 (79%) | DB: 0.03671 (10%) | 200 OK [http://localhost/categories/2204]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002386)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:19:40') [0m
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2008-10-16 16:19:40) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"2217", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.001671)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2217) [0m
+Rendering template within layouts/main
+Rendering categories/show
+  [4;36;1mCategory Load (0.001609)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItem Load (0.001188)[0m   [0mSELECT * FROM "items" WHERE ("items".category_id = 2217) [0m
+  [4;36;1mCategory Load (0.004925)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 2217) [0m
+  [4;35;1mCart Load (0.001711)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.52790 (1 reqs/sec) | Rendering: 0.10131 (19%) | DB: 0.01525 (2%) | 200 OK [http://localhost/categories/2217]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002427)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:19:45') [0m
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2008-10-16 16:19:46) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"2218", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.001509)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2218) [0m
+Rendering template within layouts/main
+Rendering categories/show
+  [4;35;1mCategory Load (0.004735)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2217) [0m
+  [4;36;1mItem Load (0.001084)[0m   [0;1mSELECT * FROM "items" WHERE ("items".category_id = 2218) [0m
+  [4;35;1mCategory Load (0.001148)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 2218) [0m
+  [4;36;1mCart Load (0.001672)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.32119 (3 reqs/sec) | Rendering: 0.20457 (63%) | DB: 0.01475 (4%) | 200 OK [http://localhost/categories/2218]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002819)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:31:37') [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002390)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-15 21:32:12') [0m
+  [4;35;1mSQL (0.002856)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.002167)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002350)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002144)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002232)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002506)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002039)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20081008233021)
+  [4;36;1mSQL (0.002264)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20081008233332)
+  [4;35;1mSQL (0.002199)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20081009035143)
+  [4;36;1mSQL (0.001846)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateCarts (20081010183725)
+  [4;35;1mSQL (0.002121)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddSubCategories (20081011232718)
+  [4;36;1mSQL (0.002353)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItemImages (20081016052839)
+  [4;35;1mSQL (0.003217)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItemOptions (20081016213138)
+  [4;36;1mSQL (0.002135)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000767)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.004115)[0m   [0;1mCREATE TABLE "item_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "price_difference" float DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003276)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081016213138')[0m
+  [4;36;1mSQL (0.003167)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002275)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000317)[0m   [0;1mPRAGMA index_list("carts")[0m
+  [4;35;1mSQL (0.000272)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mPRAGMA index_list("item_images")[0m
+  [4;35;1mSQL (0.000313)[0m   [0mPRAGMA index_list("item_options")[0m
+  [4;36;1mSQL (0.000350)[0m   [0;1mPRAGMA index_list("items")[0m
+  [4;35;1mSQL (0.001045)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.000919)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.001092)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002964)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:55:37') [0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2008-10-16 22:55:37) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.065881)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering categories/index
+  [4;36;1mCart Load (0.001928)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.74531 (1 reqs/sec) | Rendering: 0.61957 (83%) | DB: 0.07222 (9%) | 200 OK [http://localhost/categories]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002232)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:55:41') [0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2008-10-16 22:55:41) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"index", "controller"=>"items"}
+  [4;35;1mItem Load (0.011006)[0m   [0mSELECT * FROM "items" [0m
+Rendering template within layouts/main
+Rendering items/index
+  [4;36;1mCategory Load (0.001558)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCart Load (0.001533)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.21733 (4 reqs/sec) | Rendering: 0.15952 (73%) | DB: 0.01780 (8%) | 200 OK [http://localhost/items]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.001853)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:55:43') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 22:55:43) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"36", "controller"=>"items"}
+  [4;35;1mItem Load (0.001863)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 36) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001850)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItemImage Load (0.001958)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 36) [0m
+  [4;36;1mCart Load (0.001589)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.63292 (1 reqs/sec) | Rendering: 0.58466 (92%) | DB: 0.01057 (1%) | 200 OK [http://localhost/items/36]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002596)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:55:45') [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-16 22:55:45) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/item_images/0000/0019/astronomer21920_thumb.jpg" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /opt/local/bin/thin:19:in `load'
+    /opt/local/bin/thin:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002289)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:55:51') [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-16 22:55:51) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/item_images/0000/0019/astronomer21920_thumb.jpg" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /opt/local/bin/thin:19:in `load'
+    /opt/local/bin/thin:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.003729)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:56:15') [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-16 22:56:15) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/item_images/0000/0019/astronomer21920_thumb.jpg" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /opt/local/bin/thin:19:in `load'
+    /opt/local/bin/thin:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002195)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:57:18') [0m
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2008-10-16 22:57:18) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"2204", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.001662)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+Rendering template within layouts/main
+Rendering categories/show
+  [4;35;1mItem Load (0.010574)[0m   [0mSELECT * FROM "items" WHERE ("items".category_id = 2204) [0m
+  [4;36;1mCategory Load (0.004136)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."parent_id" = 2204) [0m
+  [4;35;1mCart Load (0.001549)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.19216 (5 reqs/sec) | Rendering: 0.12586 (65%) | DB: 0.02177 (11%) | 200 OK [http://localhost/categories/2204]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002580)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:57:26') [0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2008-10-16 22:57:26) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"index", "controller"=>"items"}
+  [4;36;1mItem Load (0.012135)[0m   [0;1mSELECT * FROM "items" [0m
+Rendering template within layouts/main
+Rendering items/index
+  [4;35;1mCategory Load (0.001410)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mCart Load (0.001652)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.25150 (3 reqs/sec) | Rendering: 0.19574 (77%) | DB: 0.01949 (7%) | 200 OK [http://localhost/items]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.001861)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:57:28') [0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2008-10-16 22:57:28) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"new", "controller"=>"items"}
+  [4;36;1mCategory Load (0.071377)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering items/new
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" [0m
+Rendered items/_image (0.00070)
+Rendered items/_image (0.01321)
+  [4;36;1mCart Load (0.001758)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.35354 (2 reqs/sec) | Rendering: 0.18902 (53%) | DB: 0.07671 (21%) | 200 OK [http://localhost/items/new]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.004452)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:57:59') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 22:58:00) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"commit"=>"Create", "item_images"=>[#<File:/var/folders/dJ/dJeFMqmlF8mIisAtjEpWd++++TQ/-Tmp-/CGI78810-10>], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"image", "price"=>"123", "category_id"=>"2206", "description"=>"test"}}
+  [4;35;1mItem Create (0.001447)[0m   [0mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('image', NULL, '2008-10-17 03:58:00', 123.0, 2206, 'test', '2008-10-17 03:58:00')[0m
+  [4;36;1mItemImage Create (0.001464)[0m   [0;1mINSERT INTO "item_images" ("item_id", "content_type", "thumbnail", "size", "updated_at", "filename", "height", "width", "created_at") VALUES(37, 'image/jpeg', NULL, 1229013, '2008-10-17 03:58:02', 'whitemagic1920.jpg', 200, 320, '2008-10-17 03:58:02')[0m
+20
+  [4;35;1mItem Update (0.001467)[0m   [0mUPDATE "items" SET "default_image_id" = 20, "updated_at" = '2008-10-17 03:58:02' WHERE "id" = 37[0m
+Redirected to http://localhost:3000/items/37
+Completed in 2.07414 (0 reqs/sec) | DB: 0.01061 (0%) | 302 Found [http://localhost/items]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002054)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:58:02') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 22:58:02) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"37", "controller"=>"items"}
+  [4;35;1mItem Load (0.001765)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 37) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001379)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2206) [0m
+  [4;35;1mItemImage Load (0.002173)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 37) [0m
+  [4;36;1mCart Load (0.001549)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.25433 (3 reqs/sec) | Rendering: 0.20265 (79%) | DB: 0.01105 (4%) | 200 OK [http://localhost/items/37]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002003)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 03:58:03') [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-16 22:58:04) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/item_images/0000/0020/whitemagic1920_thumb.jpg" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.0/lib/eventmachine.rb:224:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/bin/thin:6
+    /opt/local/bin/thin:19:in `load'
+    /opt/local/bin/thin:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002256)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:03:15') [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002772)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:04:37') [0m
+  [4;35;1mSQL (0.002825)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.002187)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002647)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002789)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002178)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002127)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002602)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002179)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20081008233021)
+  [4;35;1mSQL (0.002959)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20081008233332)
+  [4;36;1mSQL (0.002253)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20081009035143)
+  [4;35;1mSQL (0.002033)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCarts (20081010183725)
+  [4;36;1mSQL (0.002166)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSubCategories (20081011232718)
+  [4;35;1mSQL (0.002398)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItemImages (20081016052839)
+  [4;36;1mSQL (0.002578)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItemOptions (20081016213138)
+  [4;35;1mSQL (0.002347)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddParendIdToItemImage (20081017040316)
+  [4;36;1mSQL (0.003037)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000773)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.003775)[0m   [0;1mALTER TABLE "item_images" ADD "parent_id" integer[0m
+  [4;35;1mSQL (0.024458)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.005901)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081017040316')[0m
+  [4;35;1mSQL (0.002417)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001946)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000301)[0m   [0mPRAGMA index_list("carts")[0m
+  [4;36;1mSQL (0.000321)[0m   [0;1mPRAGMA index_list("categories")[0m
+  [4;35;1mSQL (0.000427)[0m   [0mPRAGMA index_list("item_images")[0m
+  [4;36;1mSQL (0.000321)[0m   [0;1mPRAGMA index_list("item_options")[0m
+  [4;35;1mSQL (0.000281)[0m   [0mPRAGMA index_list("items")[0m
+  [4;36;1mSQL (0.001108)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.001058)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.000861)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002372)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:05:07') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 23:05:16) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"default_image"=>"0", "commit"=>"Create", "item_images"=>[#<File:/var/folders/dJ/dJeFMqmlF8mIisAtjEpWd++++TQ/-Tmp-/CGI87165-6>], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"image", "price"=>"123", "category_id"=>"2206", "description"=>"test"}}
+  [4;35;1mItem Create (0.005612)[0m   [0mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('image', NULL, '2008-10-17 04:05:16', 123.0, 2206, 'test', '2008-10-17 04:05:16')[0m
+  [4;36;1mItemImage Create (0.001440)[0m   [0;1mINSERT INTO "item_images" ("item_id", "content_type", "thumbnail", "size", "updated_at", "filename", "height", "parent_id", "width", "created_at") VALUES(38, 'image/jpeg', NULL, 758829, '2008-10-17 04:05:19', 'summerwood1920.jpg', 200, NULL, 320, '2008-10-17 04:05:19')[0m
+  [4;35;1mItemImage Load (0.001002)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images"."parent_id" = 21 AND "item_images"."thumbnail" = 'thumb') LIMIT 1[0m
+  [4;36;1mItemImage Create (0.000559)[0m   [0;1mINSERT INTO "item_images" ("item_id", "content_type", "thumbnail", "size", "updated_at", "filename", "height", "parent_id", "width", "created_at") VALUES(NULL, 'image/jpeg', 'thumb', 26142, '2008-10-17 04:05:19', 'summerwood1920_thumb.jpg', 63, 21, 100, '2008-10-17 04:05:19')[0m
+21
+  [4;35;1mItem Update (0.001298)[0m   [0mUPDATE "items" SET "default_image_id" = 21, "updated_at" = '2008-10-17 04:05:19' WHERE "id" = 38[0m
+Redirected to http://localhost:3000/items/38
+Completed in 2.82398 (0 reqs/sec) | DB: 0.01369 (0%) | 302 Found [http://localhost/items]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002046)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:05:19') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:05:19) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"38", "controller"=>"items"}
+  [4;35;1mItem Load (0.001816)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 38) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001884)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2206) [0m
+  [4;35;1mItemImage Load (0.001972)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 38) [0m
+  [4;36;1mCart Load (0.001508)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.31593 (3 reqs/sec) | Rendering: 0.26281 (83%) | DB: 0.01077 (3%) | 200 OK [http://localhost/items/38]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002394)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:10:01') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:10:16) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"38", "controller"=>"items"}
+  [4;35;1mItem Load (0.001720)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 38) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.002132)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2206) [0m
+  [4;35;1mItemImage Load (0.003176)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 38) [0m
+  [4;36;1mCart Load (0.002604)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.58988 (1 reqs/sec) | Rendering: 0.52917 (89%) | DB: 0.01349 (2%) | 200 OK [http://localhost/items/38]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002815)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:18:10') [0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2008-10-16 23:18:11) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"new", "controller"=>"items"}
+  [4;35;1mCategory Load (0.064899)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering items/new
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendered items/_item_option (0.00100)
+Rendered items/_item_option (0.00102)
+Rendered items/_image (0.00097)
+Rendered items/_image (0.00074)
+  [4;35;1mCart Load (0.001813)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.44039 (2 reqs/sec) | Rendering: 0.15901 (36%) | DB: 0.07105 (16%) | 200 OK [http://localhost/items/new]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002730)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:18:47') [0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2008-10-16 23:19:05) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"new", "controller"=>"items"}
+  [4;35;1mCategory Load (0.069874)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering items/new
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendered items/_item_option (0.00107)
+Rendered items/_item_option (0.00113)
+Rendered items/_image (0.00059)
+Rendered items/_image (0.00077)
+  [4;35;1mCart Load (0.001642)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.32675 (3 reqs/sec) | Rendering: 0.16318 (49%) | DB: 0.07597 (23%) | 200 OK [http://localhost/items/new]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002231)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:20:38') [0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2008-10-16 23:20:38) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"new", "controller"=>"items"}
+  [4;36;1mCategory Load (0.060363)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering items/new
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "categories" [0m
+Rendered items/_item_option (0.00088)
+Rendered items/_item_option (0.00091)
+Rendered items/_image (0.00066)
+Rendered items/_image (0.00071)
+  [4;36;1mCart Load (0.001673)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.61028 (1 reqs/sec) | Rendering: 0.12767 (20%) | DB: 0.06579 (10%) | 200 OK [http://localhost/items/new]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.001880)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:21:21') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 23:21:21) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"item_options"=>[{"'price'"=>"1", "'name'"=>"option 1"}, {"'price'"=>"2", "'name'"=>"option 2"}, {"'price'"=>"3", "'name'"=>"option 3"}], "commit"=>"Create", "item_images"=>[""], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"test Item 1", "price"=>"798", "category_id"=>"2204", "description"=>"test"}}
+  [4;35;1mItem Create (0.001736)[0m   [0mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('test Item 1', NULL, '2008-10-17 04:21:21', 798.0, 2204, 'test', '2008-10-17 04:21:21')[0m
+
+Redirected to http://localhost:3000/items/39
+Completed in 0.50173 (1 reqs/sec) | DB: 0.00540 (1%) | 302 Found [http://localhost/items]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002458)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:21:22') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:21:22) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"39", "controller"=>"items"}
+  [4;35;1mItem Load (0.001734)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 39) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001759)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItemImage Load (0.001445)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 39) [0m
+  [4;36;1mCart Load (0.001418)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.58512 (1 reqs/sec) | Rendering: 0.52503 (89%) | DB: 0.01048 (1%) | 200 OK [http://localhost/items/39]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002837)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:23:59') [0m
+  [4;35;1mSQL (0.002856)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.002995)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003075)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.002480)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddParendIdToItemImage (20081017040316)
+  [4;35;1mSQL (0.002612)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000807)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.003770)[0m   [0mCREATE TEMPORARY TABLE "altered_item_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer DEFAULT NULL NULL, "content_type" varchar(255) DEFAULT NULL NULL, "filename" varchar(255) DEFAULT NULL NULL, "thumbnail" varchar(255) DEFAULT NULL NULL, "size" integer DEFAULT NULL NULL, "width" integer DEFAULT NULL NULL, "height" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "parent_id" integer DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000236)[0m   [0;1mPRAGMA index_list("item_images")[0m
+  [4;35;1mSQL (0.001764)[0m   [0mDROP TABLE "item_images"[0m
+  [4;36;1mSQL (0.001331)[0m   [0;1mCREATE TABLE "item_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer DEFAULT NULL NULL, "content_type" varchar(255) DEFAULT NULL NULL, "filename" varchar(255) DEFAULT NULL NULL, "thumbnail" varchar(255) DEFAULT NULL NULL, "size" integer DEFAULT NULL NULL, "width" integer DEFAULT NULL NULL, "height" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000228)[0m   [0mPRAGMA index_list("altered_item_images")[0m
+  [4;36;1mSQL (0.000512)[0m   [0;1mDROP TABLE "altered_item_images"[0m
+  [4;35;1mSQL (0.004023)[0m   [0mDELETE FROM schema_migrations WHERE version = '20081017040316'[0m
+  [4;36;1mSQL (0.002293)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001956)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000262)[0m   [0;1mPRAGMA index_list("carts")[0m
+  [4;35;1mSQL (0.000298)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mPRAGMA index_list("item_images")[0m
+  [4;35;1mSQL (0.000351)[0m   [0mPRAGMA index_list("item_options")[0m
+  [4;36;1mSQL (0.000337)[0m   [0;1mPRAGMA index_list("items")[0m
+  [4;35;1mSQL (0.000965)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.000829)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.000933)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mSQL (0.002174)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001942)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.002768)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002075)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001967)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002507)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002028)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002354)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002779)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20081008233021)
+  [4;35;1mSQL (0.001981)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20081008233332)
+  [4;36;1mSQL (0.001945)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20081009035143)
+  [4;35;1mSQL (0.001862)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCarts (20081010183725)
+  [4;36;1mSQL (0.002156)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSubCategories (20081011232718)
+  [4;35;1mSQL (0.002995)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItemImages (20081016052839)
+  [4;36;1mSQL (0.002724)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItemOptions (20081016213138)
+  [4;35;1mSQL (0.002665)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002660)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:24:38') [0m
+  [4;35;1mSQL (0.002421)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000981)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table "item_options" already exists: CREATE TABLE "item_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "price" float DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002767)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:25:02') [0m
+  [4;35;1mSQL (0.002403)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000800)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.004653)[0m   [0mALTER TABLE "item_images" ADD "parent_id" integer[0m
+  [4;36;1mSQL (0.020425)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003894)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002628)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000288)[0m   [0mPRAGMA index_list("carts")[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mPRAGMA index_list("categories")[0m
+  [4;35;1mSQL (0.000372)[0m   [0mPRAGMA index_list("item_images")[0m
+  [4;36;1mSQL (0.000383)[0m   [0;1mPRAGMA index_list("item_options")[0m
+  [4;35;1mSQL (0.000304)[0m   [0mPRAGMA index_list("items")[0m
+  [4;36;1mSQL (0.001605)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.000721)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002834)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:25:55') [0m
+  [4;35;1mSQL (0.002759)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.003977)[0m   [0;1mDROP TABLE "item_options"[0m
+  [4;35;1mSQL (0.000919)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.003091)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001861)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mPRAGMA index_list("carts")[0m
+  [4;35;1mSQL (0.000359)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.000315)[0m   [0;1mPRAGMA index_list("item_images")[0m
+  [4;35;1mSQL (0.000273)[0m   [0mPRAGMA index_list("items")[0m
+  [4;36;1mSQL (0.001186)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.000673)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.000630)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002221)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:26:11') [0m
+  [4;35;1mSQL (0.002901)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000863)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.003822)[0m   [0mCREATE TABLE "item_options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "price" float DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002859)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002766)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000421)[0m   [0;1mPRAGMA index_list("carts")[0m
+  [4;35;1mSQL (0.000461)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mPRAGMA index_list("item_images")[0m
+  [4;35;1mSQL (0.000277)[0m   [0mPRAGMA index_list("item_options")[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mPRAGMA index_list("items")[0m
+  [4;35;1mSQL (0.000969)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.000669)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.000651)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002932)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:27:18') [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002451)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:27:22') [0m
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.000825)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:27:24') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 23:27:27) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"item_options"=>[{"'price'"=>"1", "'name'"=>"option 1"}, {"'price'"=>"2", "'name'"=>"option 2"}, {"'price'"=>"3", "'name'"=>"option 3"}], "commit"=>"Create", "item_images"=>[""], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"test Item 1", "price"=>"798", "category_id"=>"2204", "description"=>"test"}}
+  [4;35;1mItem Create (0.002129)[0m   [0mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('test Item 1', NULL, '2008-10-17 04:27:27', 798.0, 2204, 'test', '2008-10-17 04:27:27')[0m
+
+  [4;36;1mItemOption Create (0.001622)[0m   [0;1mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(40, NULL, '2008-10-17 04:27:28', NULL, '2008-10-17 04:27:28')[0m
+  [4;35;1mItemOption Create (0.001349)[0m   [0mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(40, NULL, '2008-10-17 04:27:28', NULL, '2008-10-17 04:27:28')[0m
+  [4;36;1mItemOption Create (0.001296)[0m   [0;1mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(40, NULL, '2008-10-17 04:27:28', NULL, '2008-10-17 04:27:28')[0m
+Redirected to http://localhost:3000/items/40
+Completed in 0.57095 (1 reqs/sec) | DB: 0.01075 (1%) | 302 Found [http://localhost/items]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002051)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:27:28') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:27:28) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"40", "controller"=>"items"}
+  [4;36;1mItem Load (0.001639)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 40) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;35;1mCategory Load (0.001814)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mItemImage Load (0.000843)[0m   [0;1mSELECT * FROM "item_images" WHERE ("item_images".item_id = 40) [0m
+  [4;35;1mCart Load (0.001679)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.24705 (4 reqs/sec) | Rendering: 0.19654 (79%) | DB: 0.01002 (4%) | 200 OK [http://localhost/items/40]
+  [4;36;1mItem Load (0.001769)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 40) [0m
+  [4;35;1mItemOption Load (0.002549)[0m   [0mSELECT * FROM "item_options" WHERE ("item_options".item_id = 40) [0m
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.001920)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:28:14') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 23:28:14) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"item_options"=>[{"'price'"=>"1", "'name'"=>"option 1"}, {"'price'"=>"2", "'name'"=>"option 2"}, {"'price'"=>"3", "'name'"=>"option 3"}], "commit"=>"Create", "item_images"=>[""], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"test Item 1", "price"=>"798", "category_id"=>"2204", "description"=>"test"}}
+  [4;36;1mItem Create (0.001454)[0m   [0;1mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('test Item 1', NULL, '2008-10-17 04:28:14', 798.0, 2204, 'test', '2008-10-17 04:28:14')[0m
+
+  [4;35;1mItemOption Create (0.001347)[0m   [0mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(41, NULL, '2008-10-17 04:28:14', NULL, '2008-10-17 04:28:14')[0m
+  [4;36;1mItemOption Create (0.001647)[0m   [0;1mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(41, NULL, '2008-10-17 04:28:14', NULL, '2008-10-17 04:28:14')[0m
+  [4;35;1mItemOption Create (0.001603)[0m   [0mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(41, NULL, '2008-10-17 04:28:14', NULL, '2008-10-17 04:28:14')[0m
+Redirected to http://localhost:3000/items/41
+Completed in 0.24499 (4 reqs/sec) | DB: 0.00943 (3%) | 302 Found [http://localhost/items]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002345)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:28:14') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:28:14) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"41", "controller"=>"items"}
+  [4;35;1mItem Load (0.001640)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 41) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001437)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItemImage Load (0.000946)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 41) [0m
+  [4;36;1mCart Load (0.002176)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.23918 (4 reqs/sec) | Rendering: 0.17987 (75%) | DB: 0.01147 (4%) | 200 OK [http://localhost/items/41]
+  [4;36;1mItem Load (0.001724)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 41) [0m
+  [4;35;1mItemOption Load (0.003181)[0m   [0mSELECT * FROM "item_options" WHERE ("item_options".item_id = 41) [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002239)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:29:24') [0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2008-10-16 23:29:24) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"new", "controller"=>"items"}
+  [4;35;1mCategory Load (0.071811)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/main
+Rendering items/new
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendered items/_item_option (0.00105)
+Rendered items/_item_option (0.00095)
+Rendered items/_image (0.00066)
+Rendered items/_image (0.00077)
+  [4;35;1mCart Load (0.001694)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.34795 (2 reqs/sec) | Rendering: 0.16894 (48%) | DB: 0.07878 (22%) | 200 OK [http://localhost/items/new]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002018)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:29:51') [0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2008-10-16 23:29:51) [POST]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"item_options"=>[{"name"=>"option 1", "price"=>"1"}, {"name"=>"option 2", "price"=>"2"}, {"name"=>"option 3", "price"=>"3"}], "commit"=>"Create", "item_images"=>[""], "authenticity_token"=>"077080381f7bb3b4fd64ad33766696bc6c44174f", "action"=>"create", "controller"=>"items", "item"=>{"name"=>"test Item 1", "price"=>"123", "category_id"=>"2204", "description"=>"ted"}}
+  [4;36;1mItem Create (0.003467)[0m   [0;1mINSERT INTO "items" ("name", "default_image_id", "updated_at", "price", "category_id", "description", "created_at") VALUES('test Item 1', NULL, '2008-10-17 04:29:51', 123.0, 2204, 'ted', '2008-10-17 04:29:51')[0m
+
+  [4;35;1mItemOption Create (0.001573)[0m   [0mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(42, 'option 1', '2008-10-17 04:29:51', 1.0, '2008-10-17 04:29:51')[0m
+  [4;36;1mItemOption Create (0.005088)[0m   [0;1mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(42, 'option 2', '2008-10-17 04:29:51', 2.0, '2008-10-17 04:29:51')[0m
+  [4;35;1mItemOption Create (0.001526)[0m   [0mINSERT INTO "item_options" ("item_id", "name", "updated_at", "price", "created_at") VALUES(42, 'option 3', '2008-10-17 04:29:51', 3.0, '2008-10-17 04:29:51')[0m
+Redirected to http://localhost:3000/items/42
+Completed in 0.30377 (3 reqs/sec) | DB: 0.01601 (5%) | 302 Found [http://localhost/items]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002849)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:29:51') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:29:51) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"42", "controller"=>"items"}
+  [4;35;1mItem Load (0.003052)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 42) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001807)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItemImage Load (0.000960)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 42) [0m
+  [4;36;1mCart Load (0.001399)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.66321 (1 reqs/sec) | Rendering: 0.19434 (29%) | DB: 0.01233 (1%) | 200 OK [http://localhost/items/42]
+  [4;36;1mItem Load (0.001753)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 42) [0m
+  [4;35;1mItemOption Load (0.002298)[0m   [0mSELECT * FROM "item_options" WHERE ("item_options".item_id = 42) [0m
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002700)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:34:56') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:34:56) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"42", "controller"=>"items"}
+  [4;35;1mItem Load (0.001937)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 42) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001469)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItemOption Load (0.002495)[0m   [0mSELECT * FROM "item_options" WHERE ("item_options".item_id = 42) [0m
+  [4;36;1mItemImage Load (0.001291)[0m   [0;1mSELECT * FROM "item_images" WHERE ("item_images".item_id = 42) [0m
+  [4;35;1mCart Load (0.001638)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.28084 (3 reqs/sec) | Rendering: 0.22478 (80%) | DB: 0.01352 (4%) | 200 OK [http://localhost/items/42]
+  [4;35;1mCGI::Session::ActiveRecordStore::Session Load (0.002262)[0m   [0mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:35:25') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:35:25) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"42", "controller"=>"items"}
+  [4;36;1mItem Load (0.001564)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 42) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;35;1mCategory Load (0.001501)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;36;1mItemOption Load (0.002843)[0m   [0;1mSELECT * FROM "item_options" WHERE ("item_options".item_id = 42) [0m
+  [4;35;1mItemImage Load (0.000839)[0m   [0mSELECT * FROM "item_images" WHERE ("item_images".item_id = 42) [0m
+  [4;36;1mCart Load (0.001715)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.26503 (3 reqs/sec) | Rendering: 0.20961 (79%) | DB: 0.01256 (4%) | 200 OK [http://localhost/items/42]
+  [4;36;1mCGI::Session::ActiveRecordStore::Session Load (0.002061)[0m   [0;1mSELECT * FROM "sessions" WHERE (updated_at < '2008-10-16 04:35:36') [0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2008-10-16 23:35:36) [GET]
+  Session ID: 4e2aa13c3d077a9c115f5c254a53890a
+  Parameters: {"action"=>"show", "id"=>"42", "controller"=>"items"}
+  [4;35;1mItem Load (0.001755)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 42) [0m
+Rendering template within layouts/main
+Rendering items/show
+  [4;36;1mCategory Load (0.001763)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 2204) [0m
+  [4;35;1mItemOption Load (0.003374)[0m   [0mSELECT * FROM "item_options" WHERE ("item_options".item_id = 42) [0m
+  [4;36;1mItemImage Load (0.000859)[0m   [0;1mSELECT * FROM "item_images" WHERE ("item_images".item_id = 42) [0m
+  [4;35;1mCart Load (0.001331)[0m   [0mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+NOT BLANK
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "carts" WHERE ("carts"."session_id" = '4e2aa13c3d077a9c115f5c254a53890a') LIMIT 1[0m
+Completed in 0.27151 (3 reqs/sec) | Rendering: 0.21686 (79%) | DB: 0.01267 (4%) | 200 OK [http://localhost/items/42]

@@ -1,0 +1,10 @@
+<div class="item_option">
+		<p>
+			<%= label_tag "Option" %>:
+		  <%= text_field_tag "item_options[][name]" %><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<%= label_tag "Price" %>
+			<%= text_field_tag "item_options[][price]" %>
+			<%= button_to_function "Remove Option", "this.up('.item_option').remove();" %>
+		</p>
+</div>

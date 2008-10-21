@@ -1,0 +1,18 @@
+<p>
+  <b>Item:</b>
+  <%=h @item_option.item_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @item_option.name %>
+</p>
+
+<p>
+  <b>Price difference:</b>
+  <%=h @item_option.price_difference %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_option_path(@item_option) %> |
+<%= link_to 'Back', item_options_path %>

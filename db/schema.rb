@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081016052839) do
+ActiveRecord::Schema.define(:version => 20081016213138) do
 
   create_table "carts", :force => true do |t|
     t.string   "session_id"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20081016052839) do
     t.integer  "size"
     t.integer  "width"
     t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "parent_id"
+  end
+
+  create_table "item_options", :force => true do |t|
+    t.integer  "item_id"
+    t.string   "name"
+    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

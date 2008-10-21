@@ -1,0 +1,23 @@
+<h1>New item_option</h1>
+
+<% form_for(@item_option) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :item_id %><br />
+    <%= f.text_field :item_id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :price_difference %><br />
+    <%= f.text_field :price_difference %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', item_options_path %>

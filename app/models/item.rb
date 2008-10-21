@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :category
   has_many :item_images
+  has_many :item_options
   
   validates_presence_of :name, :price, :description
   

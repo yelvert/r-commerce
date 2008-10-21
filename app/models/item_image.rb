@@ -10,4 +10,8 @@ class ItemImage < ActiveRecord::Base
 
   validates_as_attachment
   
+  def default_image?(item=nil)
+    self.id == item.default_image_id
+  end
+  
 end

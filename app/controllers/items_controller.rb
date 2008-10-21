@@ -63,6 +63,9 @@ class ItemsController < ApplicationController
         params[:item_images].each do |file|
           @image = ItemImage.create({:uploaded_data => file, :item_id => @item.id}) unless file == ""
         end
+        params[:item_options].each do |option|
+          ItemOption.create :item_id => @item.id, :name => option["name"], :price => option["price"]
+        end
         flash[:notice] = 'Item was successfully created.'
         format.html { redirect_to(@item) }
         format.xml  { render :xml => @item, :status => :created, :location => @item }

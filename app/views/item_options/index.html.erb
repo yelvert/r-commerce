@@ -1,0 +1,24 @@
+<h1>Listing item_options</h1>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Name</th>
+    <th>Price difference</th>
+  </tr>
+
+<% for item_option in @item_options %>
+  <tr>
+    <td><%=h item_option.item_id %></td>
+    <td><%=h item_option.name %></td>
+    <td><%=h item_option.price_difference %></td>
+    <td><%= link_to 'Show', item_option %></td>
+    <td><%= link_to 'Edit', edit_item_option_path(item_option) %></td>
+    <td><%= link_to 'Destroy', item_option, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item_option', new_item_option_path %>
