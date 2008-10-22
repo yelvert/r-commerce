@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   
   #This destroys all sessions older than 24 hours
   destroyed_sessions = CGI::Session::ActiveRecordStore::Session.destroy_all( ['updated_at < ?',24.hours.ago] )
-  destroyed_sessions.each {|s| Cart.destroy('session_id = ?', s.session_id)}
+  destroyed_sessions.each {|s| Cart.destroy('session_id = #{s.session_id}')}
   
 end

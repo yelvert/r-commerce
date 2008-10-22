@@ -53,14 +53,14 @@ class ItemsController < ApplicationController
     
     respond_to do |format|
       if @item.save
-        a = ItemImage.create({:uploaded_data => params[:item_images][params[:default_image].to_i], :item_id => @item.id})
+        a = ItemImage.create({:uploaded_data => params[:item_images][params[:default_image].to_i.to_s], :item_id => @item.id})
         logger.info a.id
         @item.default_image_id = a.id
         @item.save
-        params[:item_images].delete_at(params[:default_image].to_i)
+        params[:item_images].delete(params[:default_image].to_i)
         @image = ItemImage.new
         params[:item_images] ||= []
-        params[:item_images].each do |file|
+        params[:item_images].each do |index,file|
           @image = ItemImage.create({:uploaded_data => file, :item_id => @item.id}) unless file == ""
         end
         flash[:notice] = 'Item was successfully created.'

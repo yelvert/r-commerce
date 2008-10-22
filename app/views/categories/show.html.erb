@@ -6,7 +6,7 @@
 <% unless @category.parent_id.nil? %>
 	<p>
 		<b>Parent Category</b>
-		<%= @category.parent_category.name %>
+		<%= link_to @category.parent_category.name, @category.parent_category %>
 	</p>
 <% end %>
 
