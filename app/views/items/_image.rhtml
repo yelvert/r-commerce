@@ -1,12 +1,14 @@
 <div class="image">
 		<p>
 			Default: <input type="radio" id="default_radio" name="default_image" value="">
+			<%= label_tag "Image" %>:
+		  	<%= file_field_tag 'item_images[]' %>
 			<script type="text/javascript" charset="utf-8">
 				$('default_radio').value = image_i;
 				$('default_radio').id = 'default_radio_'+image_i+'';
+				$('item_images[]').name = 'item_images['+image_i+']';
+				$('item_images[]').id = 'item_images['+image_i+']';
 			</script>
-			<%= label_tag "Image" %>:
-		  <%= file_field_tag 'item_images[]' %>
 			<%= button_to_function "Remove Image", "this.up('.image').remove();" %>
 		</p>
 </div>
