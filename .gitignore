@@ -4,3 +4,4 @@ log/*.log
 log/*.ppid
 log/*.pid
 **/.svn
+db/*.sqlite3
