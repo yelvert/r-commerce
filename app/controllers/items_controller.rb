@@ -108,24 +108,16 @@ class ItemsController < ApplicationController
   
   def add_to_cart
     @item = Item.find(params[:id])
-    @cart = Cart.find_by_session_id(session.session_id)
-    if @cart.item_ids == ''
-      @cart.item_ids += "#{@item.id}"
-    else
-      @cart.item_ids += ",#{@item.id}"
-    end
+    @cart = session["cart"]
+    @cart.items << @item
     @cart.save
     render :action => 'add_to_cart.rjs'
   end
   
   def remove_from_cart
     @item = Item.find(params[:id])
-    @cart = Cart.find_by_session_id(session.session_id)
-    @items = @cart.item_ids.split(',')
-    if @items.include? "#{@item.id}"
-      @items.delete "#{@item.id}"
-    end
-    @cart.item_ids = @items.join(',')
+    @cart = session["cart"]
+    @cart.items.delete(@item)
     @cart.save
     render :action => 'remove_from_cart.rjs'
   end

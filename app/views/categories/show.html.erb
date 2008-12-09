@@ -24,7 +24,7 @@ Items
 	<% @category.items.each do |item| %>
 	<tr>
 		<td><%= item.name %></td>
-		<td>$<%=h price_to_string(item.price) %></td>
+		<td><%= number_to_currency(item.price) %></td>
 		<td><%= link_to_remote 'Add To Cart', :url => {:controller => 'items', :action => 'add_to_cart', :id => item.id}%></td>
 	</tr>
 	<% end %>

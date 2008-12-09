@@ -9,13 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081017040316) do
+ActiveRecord::Schema.define(:version => 20081209055317) do
+
+  create_table "cart_items", :force => true do |t|
+    t.integer  "cart_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carts", :force => true do |t|
     t.string   "session_id"
-    t.text     "item_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -66,5 +73,17 @@ ActiveRecord::Schema.define(:version => 20081017040316) do
 
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
+    t.boolean  "is_admin",                                :default => false
+  end
 
 end

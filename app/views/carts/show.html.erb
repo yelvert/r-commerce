@@ -11,7 +11,7 @@
   <tr id="item-<%= item.id %>">
     <td><%= link_to item.category.name, item.category %></td>
     <td><%= link_to item.name, item %></td>
-    <td>$<%=h price_to_string(item.price) %></td>
+    <td><%= number_to_currency(item.price) %></td>
 	<td><%= link_to_remote 'Remove From Cart', :url => {:controller => 'items', :action => 'remove_from_cart', :id => item.id}%>
   </tr>
 <% end %>

@@ -14,7 +14,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.xml
   def show
-    @cart = Cart.find_by_session_id(session.session_id)
+    @cart = session["cart"]
 
     respond_to do |format|
       format.html # show.html.erb

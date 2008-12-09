@@ -65,10 +65,4 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
   
-  class Float
-    def to_precision(prec=2)
-      ((self*(1*(10**prec))).round)/((1*(10**prec)).to_f)
-    end
-  end
-  
 end

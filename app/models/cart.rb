@@ -1,8 +1,6 @@
 class Cart < ActiveRecord::Base
+  belongs_to :user
+  has_many :cart_items
+  has_many :items, :through => :cart_items
   
-  def items
-    items = Array.new
-    self.item_ids.split(',').each {|x| items << Item.find(x)}
-    items
-  end
 end
